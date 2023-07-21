@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block title %} Home {% endblock title %}
+{% block body %}
+  
+  <div class="container-sm pt-3" style="width:65%;">
+    <div>
+      <form  action='/' method='POST'>
+        <h2 class="h2" style="text-shadow: 2px 2px 3px rgb(65, 65, 65);"><b>Add a Todo</b></h2>
+        <div class="mb-3 pt-3">
+          <label for="title" class="form-label"><b>Todo Title</b></label>
+          <input type="text" class="form-control" name='title' id="title">
+        </div>
+        <div class="mb-3">
+          <label for="desc" class="form-label"><b>To Do Description</b></label>
+          <input type="text" class="form-control" name="desc" id="desc">
+        </div>
+        <div class="mb-3">
+          <label for="duration" class="form-label"><b>Duration</b></label>
+          <input type="text" class="form-control" name="duration" id="duration">
+        </div>
+        <button type="submit" class="btn btn-dark">Submit</button>
+      </form>
+    </div>
+    <div class="pt-5" style="text-align: center;">
+      <h2 class="h2 pb-3" style="text-shadow: 2px 2px 3px rgb(65, 65, 65);"><b>Your Todo's</b></h2>
+        {% if allTodo|length==0 %} 
+            <div class="alert alert-dark" role="alert">
+              <h2 class="h4" style="text-align:center;" style="text-shadow: 2px 2px 3px rgb(65, 65, 65);">No Todo's found... Add your first Todo now !!</h2>
+            </div>
+          {% else %}
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">SNO.</th>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Duration</th>
+                <th scope="col">Actions</th>
+      
+              </tr>
+            </thead>
+            <tbody>
+              {% for todo in allTodo %}
+              
+              <tr id="ele">
+                <th scope="row">{{loop.index}}</th>
+                <td>{{todo.title}}</td>
+                <td>{{todo.desc}}</td>
+                <td>{{todo.duration}}</td>
+                <td>
+                  <a href="/update/{{todo.sno}}" class="btn-outline-dark btn btn-sm mx-1" type="button">Update</a>
+                  <a href="/delete/{{todo.sno}}" class="btn-dark btn btn-sm mx-1" type="button">Delete</a>
+              </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+
+          </table>
+          </div>
+
+        {% endif %}
+        
+  </div>
+
+  {% endblock body %}

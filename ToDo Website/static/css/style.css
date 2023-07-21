@@ -1,0 +1,45 @@
+*{
+    font-family: 'Lobster', cursive;
+}
+
+body{
+    background-image: linear-gradient(to right, #c6ffdd, #fbd786, #f7797d);
+    background-repeat: no-repeat;
+}
+
+.navbar-brand:hover{
+    color:rgb(242, 238, 238);
+}
+
+.navbar-brand{
+    color:aliceblue;
+}
+
+.table{
+    border-color: black;
+}
+
+.form-control{
+    border-color: black;
+    border-radius: 4px;
+    box-shadow:3px 5px 5px rgb(42, 42, 42) ;
+}
+
+#ele:hover{
+   background-color: rgb(255, 175, 175);
+}
+
+.todo_web{
+    text-align: center;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.todo_benefit{
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.abouttodo{
+    font-family: 'Lobster', cursive;
+}
